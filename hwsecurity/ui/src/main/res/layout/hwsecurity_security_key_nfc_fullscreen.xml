@@ -11,7 +11,9 @@
         android:layout_height="100dp"
         android:visibility="gone"
         app:srcCompat="@drawable/hwsecurity_nfc_sweet_spot_a"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textNfcFullscreen"

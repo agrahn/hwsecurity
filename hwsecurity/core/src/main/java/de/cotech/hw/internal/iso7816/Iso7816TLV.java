@@ -29,6 +29,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.RestrictTo;
 import androidx.annotation.RestrictTo.Scope;
@@ -68,7 +69,7 @@ public class Iso7816TLV {
     public String prettyPrint(int indent) {
         // lol
         String padding = "                                                  ".substring(0, indent*2);
-        return padding + String.format("tag T %4x L %04d", mT, mL);
+        return padding + String.format(Locale.ROOT, "tag T %4x L %04d", mT, mL);
     }
 
     /** Read a single Iso7816 TLV packet from a given ByteBuffer, either
@@ -184,7 +185,7 @@ public class Iso7816TLV {
             StringBuilder result = new StringBuilder();
             // lol
             result.append("                                                  ".substring(0, indent*2));
-            result.append(String.format("composite tag T %4x L %04d", mT, mL));
+            result.append(String.format(Locale.ROOT, "composite tag T %4x L %04d", mT, mL));
             for (Iso7816TLV sub : mSubs) {
                 result.append('\n');
                 result.append(sub.prettyPrint(indent+1));

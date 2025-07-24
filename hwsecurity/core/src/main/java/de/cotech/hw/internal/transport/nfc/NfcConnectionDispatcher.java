@@ -75,7 +75,6 @@ public class NfcConnectionDispatcher {
     }
 
     @UiThread
-    @TargetApi(VERSION_CODES.KITKAT)
     private void enableExclusiveNfc() {
         if (nfcAdapter == null) {
             return;
@@ -83,15 +82,11 @@ public class NfcConnectionDispatcher {
         if (!nfcAdapter.isEnabled()) {
             return;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            enableReaderMode();
-        } else {
-            enableForegroundDispatch();
-        }
+        enableReaderMode();
     }
 
     @UiThread
-    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @androidx.annotation.RequiresApi(Build.VERSION_CODES.KITKAT)
     private void disableExclusiveNfc() {
         if (nfcAdapter == null) {
             return;
@@ -104,7 +99,7 @@ public class NfcConnectionDispatcher {
     }
 
     @UiThread
-    @TargetApi(VERSION_CODES.KITKAT)
+    @androidx.annotation.RequiresApi(VERSION_CODES.KITKAT)
     private void enableReaderMode() {
         if (nfcAdapter == null) {
             throw new IllegalStateException("Method must not be called if nfcAdapter is null!");
@@ -117,7 +112,7 @@ public class NfcConnectionDispatcher {
     }
 
     @UiThread
-    @TargetApi(VERSION_CODES.KITKAT)
+    @androidx.annotation.RequiresApi(VERSION_CODES.KITKAT)
     private void disableReaderMode() {
         if (nfcAdapter == null) {
             throw new IllegalStateException("Method must not be called if nfcAdapter is null!");

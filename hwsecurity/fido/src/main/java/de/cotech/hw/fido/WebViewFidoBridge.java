@@ -77,7 +77,7 @@ import de.cotech.hw.ui.R;
  * <p>
  * Note: Currently only compatible and tested with Android SDK >= 19 due to evaluateJavascript() calls.
  */
-@TargetApi(VERSION_CODES.KITKAT)
+@androidx.annotation.RequiresApi(VERSION_CODES.KITKAT)
 public class WebViewFidoBridge {
     private static final String FIDO_BRIDGE_INTERFACE = "fidobridgejava";
     private static final String ASSETS_BRIDGE_JS = "fidobridge.js";
@@ -165,7 +165,7 @@ public class WebViewFidoBridge {
     /**
      * Call this in your WebViewClient.shouldInterceptRequest(WebView view, WebResourceRequest request)
      */
-    @TargetApi(VERSION_CODES.LOLLIPOP)
+    @androidx.annotation.RequiresApi(VERSION_CODES.LOLLIPOP)
     @SuppressWarnings("unused") // public API
     public void delegateShouldInterceptRequest(WebView view, WebResourceRequest request) {
         HwTimber.d("shouldInterceptRequest(WebView view, WebResourceRequest request) %s", request.getUrl());
@@ -175,7 +175,7 @@ public class WebViewFidoBridge {
     /**
      * Call this in your WebViewClient.shouldInterceptRequest(WebView view, String url)
      */
-    @TargetApi(VERSION_CODES.KITKAT)
+    @androidx.annotation.RequiresApi(VERSION_CODES.KITKAT)
     @SuppressWarnings("unused") // public API
     public void delegateShouldInterceptRequest(WebView view, String url) {
         HwTimber.d("shouldInterceptRequest(WebView view, String url): %s", url);

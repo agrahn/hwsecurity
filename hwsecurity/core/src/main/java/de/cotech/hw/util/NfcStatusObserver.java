@@ -102,7 +102,7 @@ public class NfcStatusObserver implements LifecycleObserver {
      * <p>
      * Note that since the observer is bound to the lifecycle, no cleanup of the callback is necessary.
      */
-    @TargetApi(VERSION_CODES.JELLY_BEAN_MR2)
+    @androidx.annotation.RequiresApi(VERSION_CODES.JELLY_BEAN_MR2)
     public NfcStatusObserver(Context context, LifecycleOwner lifecycleOwner, NfcStatusCallback nfcStatusCallback) {
         if (context == null) {
             throw new NullPointerException("Context argument to NfcStatusObserver() must not be null!");
@@ -140,7 +140,7 @@ public class NfcStatusObserver implements LifecycleObserver {
         }
     }
 
-    @TargetApi(VERSION_CODES.JELLY_BEAN_MR2)
+    @androidx.annotation.RequiresApi(VERSION_CODES.JELLY_BEAN_MR2)
     private void registerNfcStateBroadcastListener() {
         if (nfcStateBroadcastReceiver == null) {
             nfcStateBroadcastReceiver = new BroadcastReceiver() {
@@ -162,7 +162,7 @@ public class NfcStatusObserver implements LifecycleObserver {
         context.registerReceiver(nfcStateBroadcastReceiver, filter);
     }
 
-    @TargetApi(VERSION_CODES.JELLY_BEAN_MR2)
+    @androidx.annotation.RequiresApi(VERSION_CODES.JELLY_BEAN_MR2)
     private void unregisterNfcStateBroadcastListener() {
         context.unregisterReceiver(nfcStateBroadcastReceiver);
     }

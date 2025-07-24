@@ -253,12 +253,7 @@ public class CcidTransceiver {
 
     private void sendRaw(byte[] data, int offset, int length) throws UsbTransportException {
         int tr1;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            tr1 = usbConnection.bulkTransfer(usbBulkOut, data, offset, length, DEVICE_COMMUNICATE_TIMEOUT_MILLIS);
-        } else {
-            byte[] dataToSend = Arrays.copyOfRange(data, offset, offset+length);
-            tr1 = usbConnection.bulkTransfer(usbBulkOut, dataToSend, dataToSend.length, DEVICE_COMMUNICATE_TIMEOUT_MILLIS);
-        }
+        tr1 = usbConnection.bulkTransfer(usbBulkOut, data, offset, length, DEVICE_COMMUNICATE_TIMEOUT_MILLIS);
 
         if (tr1 != length) {
             throw new UsbTransportException("USB error - failed to transmit data (" + tr1 + "/" + length + ")");

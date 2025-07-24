@@ -41,7 +41,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import de.cotech.hw.BuildConfig;
+// import de.cotech.hw.BuildConfig;
 import de.cotech.hw.SecurityKeyException;
 import de.cotech.hw.exceptions.AppletFileNotFoundException;
 import de.cotech.hw.exceptions.ClaNotSupportedException;
@@ -236,10 +236,10 @@ public class OpenPgpAppletConnection {
     }
 
     private void logAidInformation() {
-        if (BuildConfig.DEBUG) {
+/*        if (BuildConfig.DEBUG) {
             HwTimber.d("capabilities: %s", openPgpCapabilities);
             HwTimber.d(openPgpCapabilities.hasEncryptKey() ? "encryption key present" : "no encryption key present");
-        }
+        } */
     }
 
     private void setConnectionCapabilities(OpenPgpCapabilities openPgpCapabilities) throws IOException {

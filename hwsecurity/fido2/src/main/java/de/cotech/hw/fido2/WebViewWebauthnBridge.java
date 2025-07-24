@@ -69,7 +69,7 @@ import de.cotech.hw.ui.R;
  * <p>
  * Note: Currently only compatible and tested with Android SDK >= 19 due to evaluateJavascript() calls.
  */
-@TargetApi(VERSION_CODES.KITKAT)
+@androidx.annotation.RequiresApi(VERSION_CODES.KITKAT)
 public class WebViewWebauthnBridge {
     private static final String WEBAUTHN_BRIDGE_INTERFACE = "webauthnbridgejava";
     private static final String ASSETS_BRIDGE_JS = "webauthnbridge.js";
@@ -174,7 +174,7 @@ public class WebViewWebauthnBridge {
     /**
      * Call this in your WebViewClient.shouldInterceptRequest(WebView view, WebResourceRequest request)
      */
-    @TargetApi(VERSION_CODES.LOLLIPOP)
+    @androidx.annotation.RequiresApi(VERSION_CODES.LOLLIPOP)
     @SuppressWarnings("unused") // public API
     public void delegateShouldInterceptRequest(WebView view, WebResourceRequest request) {
         HwTimber.d("shouldInterceptRequest(WebView view, WebResourceRequest request) %s", request.getUrl());
@@ -184,7 +184,7 @@ public class WebViewWebauthnBridge {
     /**
      * Call this in your WebViewClient.shouldInterceptRequest(WebView view, String url)
      */
-    @TargetApi(VERSION_CODES.KITKAT)
+    @androidx.annotation.RequiresApi(VERSION_CODES.KITKAT)
     @SuppressWarnings("unused") // public API
     public void delegateShouldInterceptRequest(WebView view, String url) {
         HwTimber.d("shouldInterceptRequest(WebView view, String url): %s", url);
