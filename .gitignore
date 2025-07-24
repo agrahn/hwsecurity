@@ -32,3 +32,6 @@ lint-report.html
 lint-report_files/*
 
 javadoc
+
+#dokka output (documentation)
+hwsecurity.dev

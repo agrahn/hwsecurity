@@ -67,11 +67,6 @@ include(
   ":hwsecurity:intent-usb",
   ":hwsecurity:intent-nfc",
   ":hwsecurity:provider",
-  //":hwsecurity:fido",
-  //":hwsecurity:fido2",
   ":hwsecurity:openpgp",
-  //":hwsecurity:piv",
-  //":hwsecurity:sshj",
-  //":hwsecurity:ssh",
   ":hwsecurity:ui",
 )
