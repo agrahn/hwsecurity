@@ -1,0 +1,19 @@
+[versions]
+agp = "8.11.1"
+junit = "4.13.2"
+
+[libraries]
+build-agp = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+lifecycle-runtime = 'androidx.lifecycle:lifecycle-runtime:2.9.2'
+androidx-annotation = 'androidx.annotation:annotation:1.9.1'
+auto-value-annotations = 'com.google.auto.value:auto-value-annotations:1.11.0'
+google-auto-value = 'com.google.auto.value:auto-value:1.11.0'
+ryanharter-auto-value-parcel = 'com.ryanharter.auto.value:auto-value-parcel:0.2.9'
+junit = { module = "junit:junit", version.ref = "junit" }
+robolectric = 'org.robolectric:robolectric:4.15.1'
+mockito-core = 'org.mockito:mockito-core:5.18.0'
+bcprov-jdk15to18 = 'org.bouncycastle:bcprov-jdk15to18:1.81'
+bcutil-jdk18on = 'org.bouncycastle:bcutil-jdk18on:1.81'
+android-material = 'com.google.android.material:material:1.12.0'
+androidx-appcompat = 'androidx.appcompat:appcompat:1.7.1'
+androidx-constraintlayout = 'androidx.constraintlayout:constraintlayout:2.2.1'

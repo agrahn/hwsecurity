@@ -3,18 +3,17 @@ apply plugin: 'maven-publish'
 apply plugin: 'org.jetbrains.dokka'
 
 dependencies {
-    implementation 'androidx.lifecycle:lifecycle-runtime:2.3.0'
+    implementation(libs.lifecycle.runtime)
 
-    compileOnly 'androidx.annotation:annotation:1.1.0'
-    compileOnly 'io.sentry:sentry-android:2.3.1'
+    compileOnly(libs.androidx.annotation)
 
-    api 'com.google.auto.value:auto-value-annotations:1.6.5'
-    annotationProcessor 'com.google.auto.value:auto-value:1.6.2'
-    annotationProcessor 'com.ryanharter.auto.value:auto-value-parcel:0.2.6'
+    api(libs.auto.value.annotations)
+    annotationProcessor(libs.google.auto.value)
+    annotationProcessor(libs.ryanharter.auto.value.parcel)
 
-    testImplementation 'junit:junit:4.13'
-    testImplementation 'org.robolectric:robolectric:4.8.1'
-    testImplementation 'org.mockito:mockito-core:2.18.0'
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.mockito.core)
 }
 
 android {
