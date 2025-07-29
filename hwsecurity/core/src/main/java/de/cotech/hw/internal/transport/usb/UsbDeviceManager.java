@@ -284,9 +284,7 @@ public class UsbDeviceManager {
 
     @WorkerThread
     private void onIccDisconnect(UsbDevice usbDevice, UsbInterface usbInterface) {
-        if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
-            HwTimber.d("ICC disconnected on interface %s", usbInterface.getName());
-        }
+        HwTimber.d("ICC disconnected on interface %s", usbInterface.getName());
         synchronized (managedUsbDevices) {
             ManagedUsbDevice managedUsbDevice = managedUsbDevices.get(usbDevice);
             managedUsbDevice.clearActiveUsbTransport(usbInterface);

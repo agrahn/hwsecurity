@@ -84,7 +84,7 @@ public class EncryptingFileOutputStream extends OutputStream {
             SecretKeySpec secretKey = new SecretKeySpec(secretBytes, "AES");
             Arrays.fill(secretBytes, (byte) 0);
 
-            cipher = Cipher.getInstance("AES/GCM/NoPadding", "BC");
+            cipher = Cipher.getInstance("AES/GCM/NoPadding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
             byte[] iv = cipher.getIV();
             if (iv.length > 255) {
@@ -92,7 +92,7 @@ public class EncryptingFileOutputStream extends OutputStream {
             }
             outputStream.write(new byte[] { (byte) iv.length }, 0, 1);
             outputStream.write(iv, 0, iv.length);
-        } catch (NoSuchAlgorithmException | NoSuchProviderException | NoSuchPaddingException | InvalidKeyException e) {
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException e) {
             throw new AssertionError(e);
         }
     }

@@ -124,7 +124,10 @@ public class UsbConnectionDispatcher {
 
     @UiThread
     public void onActive() {
-        context.registerReceiver(usbBroadcastReceiver, intentFilter, Context.RECEIVER_NOT_EXPORTED);
+        if (Build.VERSION.SDK_INT >= 33)
+            context.registerReceiver(usbBroadcastReceiver, intentFilter, Context.RECEIVER_NOT_EXPORTED);
+        else
+            context.registerReceiver(usbBroadcastReceiver, intentFilter);
     }
 
     @UiThread

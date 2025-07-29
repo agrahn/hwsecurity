@@ -24,7 +24,6 @@
 
 package de.cotech.hw.ui;
 
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -51,6 +50,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.transition.TransitionManager;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -282,7 +282,8 @@ public abstract class SecurityKeyDialogFragment<T extends SecurityKey> extends B
 
         keyboardPinInput.setVisibility(View.GONE);
         keypadPinInput.setVisibility(View.VISIBLE);
-        buttonPinInputSwitch.setIcon(getResources().getDrawable(R.drawable.hwsecurity_ic_keyboard_alphabetical));
+        //buttonPinInputSwitch.setIcon(getResources().getDrawable(R.drawable.hwsecurity_ic_keyboard_alphabetical));
+        buttonPinInputSwitch.setIcon(ContextCompat.getDrawable(getContext(), R.drawable.hwsecurity_ic_keyboard_alphabetical));
     }
 
     @Override
@@ -291,7 +292,8 @@ public abstract class SecurityKeyDialogFragment<T extends SecurityKey> extends B
 
         keyboardPinInput.setVisibility(View.VISIBLE);
         keypadPinInput.setVisibility(View.GONE);
-        buttonPinInputSwitch.setIcon(getResources().getDrawable(R.drawable.hwsecurity_ic_keyboard_numeric));
+        //buttonPinInputSwitch.setIcon(getResources().getDrawable(R.drawable.hwsecurity_ic_keyboard_numeric));
+        buttonPinInputSwitch.setIcon(ContextCompat.getDrawable(getContext(), R.drawable.hwsecurity_ic_keyboard_numeric));
         keyboardPinInput.openKeyboard();
     }
 

@@ -86,20 +86,14 @@ public class NfcConnectionDispatcher {
     }
 
     @UiThread
-    @androidx.annotation.RequiresApi(Build.VERSION_CODES.KITKAT)
     private void disableExclusiveNfc() {
         if (nfcAdapter == null) {
             return;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            disableReaderMode();
-        } else {
-            disableForegroundDispatch();
-        }
+        disableReaderMode();
     }
 
     @UiThread
-    @androidx.annotation.RequiresApi(VERSION_CODES.KITKAT)
     private void enableReaderMode() {
         if (nfcAdapter == null) {
             throw new IllegalStateException("Method must not be called if nfcAdapter is null!");
@@ -112,7 +106,6 @@ public class NfcConnectionDispatcher {
     }
 
     @UiThread
-    @androidx.annotation.RequiresApi(VERSION_CODES.KITKAT)
     private void disableReaderMode() {
         if (nfcAdapter == null) {
             throw new IllegalStateException("Method must not be called if nfcAdapter is null!");
@@ -151,13 +144,11 @@ public class NfcConnectionDispatcher {
 
     @AnyThread
     public void ignoreNfcTag(Tag nfcTag) {
-        if (VERSION.SDK_INT >= VERSION_CODES.N) {
-            if (nfcAdapter != null) {
-                HwTimber.d("Ignoring NFC tag %s for %dms", Hex.encodeHexString(nfcTag.getId()), NFC_IGNORE_DEBOUNCE_MS);
-                nfcAdapter.ignore(nfcTag, NFC_IGNORE_DEBOUNCE_MS, () -> {
-                    HwTimber.d("No longer ignoring NFC tag");
-                }, null);
-            }
+        if (nfcAdapter != null) {
+            HwTimber.d("Ignoring NFC tag %s for %dms", Hex.encodeHexString(nfcTag.getId()), NFC_IGNORE_DEBOUNCE_MS);
+            nfcAdapter.ignore(nfcTag, NFC_IGNORE_DEBOUNCE_MS, () -> {
+                HwTimber.d("No longer ignoring NFC tag");
+            }, null);
         }
     }
 }

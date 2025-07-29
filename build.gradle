@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -11,6 +11,8 @@ buildscript {
 }
 
 ext {
-    compileSdkVersion = 33
+    compileSdkVersion = 36
+    targetSdkVersion = 36
+    minSdkVersion = 26
     hwSdkVersionName = '4.4.0'
 }

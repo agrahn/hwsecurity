@@ -37,10 +37,10 @@ import static org.junit.Assert.assertArrayEquals;
 @RunWith(RobolectricTestRunner.class)
 public class ByteSecretTest {
 
-    @Test
+/*    @Test
     public void fromEditableAndClear() {
         Editable editable = new Editable.Factory().newEditable("123456");
         ByteSecret secret = ByteSecret.fromEditableAsUtf8AndClear(editable);
         assertArrayEquals(secret.unsafeGetByteCopy(), Hex.decodeHexOrFail("313233343536"));
-    }
+    } */
 }

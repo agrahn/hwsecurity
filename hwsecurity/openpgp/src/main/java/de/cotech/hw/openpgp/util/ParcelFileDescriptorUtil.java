@@ -95,7 +95,7 @@ public class ParcelFileDescriptorUtil {
     public ParcelFileDescriptor loadToParcelFileDescriptor(
             InputStreamProvider inputStreamProvider, String cacheId, int fileSize) throws IOException {
         // Unfortunately, a MemoryFile doesn't actually work as a seekable file descriptor. We tried.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && fileSize > 0) {
+        if (fileSize > 0) {
             return memoryFilePfdUtil.loadDataToFileDescriptorCallback(cacheId, fileSize, inputStreamProvider);
         } else {
             return ephemeralFilePfdUtil.loadDataToFileDescriptor(cacheId, inputStreamProvider);

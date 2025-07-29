@@ -49,8 +49,6 @@ import androidx.annotation.RestrictTo.Scope;
 import de.cotech.hw.openpgp.util.ParcelFileDescriptorUtil.InputStreamProvider;
 import de.cotech.hw.util.HwTimber;
 
-
-@androidx.annotation.RequiresApi(VERSION_CODES.O)
 @RestrictTo(Scope.LIBRARY_GROUP)
 class MemoryFilePfdUtil {
     private final Handler handler;

@@ -32,7 +32,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.os.Build;
-import android.os.Build.VERSION_CODES;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
@@ -102,7 +101,6 @@ public class NfcStatusObserver implements LifecycleObserver {
      * <p>
      * Note that since the observer is bound to the lifecycle, no cleanup of the callback is necessary.
      */
-    @androidx.annotation.RequiresApi(VERSION_CODES.JELLY_BEAN_MR2)
     public NfcStatusObserver(Context context, LifecycleOwner lifecycleOwner, NfcStatusCallback nfcStatusCallback) {
         if (context == null) {
             throw new NullPointerException("Context argument to NfcStatusObserver() must not be null!");
@@ -127,20 +125,15 @@ public class NfcStatusObserver implements LifecycleObserver {
     @RestrictTo(Scope.LIBRARY_GROUP)
     @OnLifecycleEvent(Event.ON_RESUME)
     public void onResume() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            registerNfcStateBroadcastListener();
-        }
+        registerNfcStateBroadcastListener();
     }
 
     @RestrictTo(Scope.LIBRARY_GROUP)
     @OnLifecycleEvent(Event.ON_PAUSE)
     public void onPause() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            unregisterNfcStateBroadcastListener();
-        }
+        unregisterNfcStateBroadcastListener();
     }
 
-    @androidx.annotation.RequiresApi(VERSION_CODES.JELLY_BEAN_MR2)
     private void registerNfcStateBroadcastListener() {
         if (nfcStateBroadcastReceiver == null) {
             nfcStateBroadcastReceiver = new BroadcastReceiver() {
@@ -159,10 +152,12 @@ public class NfcStatusObserver implements LifecycleObserver {
             };
         }
         IntentFilter filter = new IntentFilter(NfcAdapter.ACTION_ADAPTER_STATE_CHANGED);
-        context.registerReceiver(nfcStateBroadcastReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
+        if (Build.VERSION.SDK_INT >= 33)
+            context.registerReceiver(nfcStateBroadcastReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
+        else
+            context.registerReceiver(nfcStateBroadcastReceiver, filter);
     }
 
-    @androidx.annotation.RequiresApi(VERSION_CODES.JELLY_BEAN_MR2)
     private void unregisterNfcStateBroadcastListener() {
         context.unregisterReceiver(nfcStateBroadcastReceiver);
     }

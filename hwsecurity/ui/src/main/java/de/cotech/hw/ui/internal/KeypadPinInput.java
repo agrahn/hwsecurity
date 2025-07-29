@@ -253,9 +253,7 @@ public class KeypadPinInput extends PinInput {
         newCircle.setImageResource(resId);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(convertDpToPx(CIRCLE_SIZE), convertDpToPx(CIRCLE_SIZE));
         lp.setMargins(convertDpToPx(CIRCLE_MARGIN_START), 0, 0, 0);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            lp.setMarginStart(convertDpToPx(CIRCLE_MARGIN_START));
-        }
+        lp.setMarginStart(convertDpToPx(CIRCLE_MARGIN_START));
         newCircle.setLayoutParams(lp);
         pinCirclesLayout.addView(newCircle);
 

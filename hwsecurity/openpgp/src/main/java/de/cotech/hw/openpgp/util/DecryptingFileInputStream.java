@@ -80,7 +80,7 @@ public class DecryptingFileInputStream extends InputStream {
 
         byte[] sessionKey = byteSecret.getByteCopyAndClear();
         try {
-            cipher = Cipher.getInstance("AES/GCM/NoPadding", "BC");
+            cipher = Cipher.getInstance("AES/GCM/NoPadding");
             int ivLength = inputStream.read();
             byte[] iv = new byte[ivLength];
             int ivRead = inputStream.read(iv);
@@ -91,7 +91,7 @@ public class DecryptingFileInputStream extends InputStream {
             totalCiphertextRead += 1 + ivLength;
             SecretKeySpec secretKey = new SecretKeySpec(sessionKey, "AES");
             cipher.init(Cipher.DECRYPT_MODE, secretKey, new IvParameterSpec(iv));
-        } catch (NoSuchAlgorithmException | NoSuchProviderException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException e) {
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException e) {
             throw new AssertionError(e);
         } finally {
             Arrays.fill(sessionKey, (byte) 0);

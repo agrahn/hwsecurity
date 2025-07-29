@@ -161,11 +161,7 @@ public class NfcTransport implements Transport {
 
     @Override
     public boolean isExtendedLengthSupported() {
-        if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
-            return mIsoDep.isExtendedLengthApduSupported();
-        } else {
-            return false;
-        }
+        return mIsoDep.isExtendedLengthApduSupported();
     }
 
     @Override

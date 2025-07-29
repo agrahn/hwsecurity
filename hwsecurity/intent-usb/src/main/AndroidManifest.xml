@@ -8,6 +8,7 @@
     <application>
         <activity
             android:name="de.cotech.hw.internal.dispatch.UsbIntentDispatchActivity"
+            android:exported="false"
             android:excludeFromRecents="true"
             android:noHistory="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">

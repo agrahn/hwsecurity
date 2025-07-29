@@ -602,7 +602,7 @@ public final class HwTimber {
             }
             tag = tag.substring(tag.lastIndexOf('.') + 1);
             // Tag length limit was removed in API 24.
-            if (tag.length() <= MAX_TAG_LENGTH || Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            if (tag.length() <= MAX_TAG_LENGTH) {
                 return tag;
             }
             return tag.substring(0, MAX_TAG_LENGTH);

@@ -40,7 +40,7 @@ interface PublicKeyAlgorithmTags {
     /**
      * @deprecated use ECDH
      */
-    int EC = 18;               // Reserved for Elliptic Curve
+    @Deprecated int EC = 18;   // Reserved for Elliptic Curve
     int ECDH = 18;             // Reserved for Elliptic Curve (actual algorithm name)
     int ECDSA = 19;            // Reserved for ECDSA
     int ELGAMAL_GENERAL = 20;  // Elgamal (Encrypt or Sign)

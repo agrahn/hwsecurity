@@ -148,15 +148,12 @@ public class SecurityKeyFormFactor implements LifecycleObserver {
 
     private void showOrHideNfcDisabledView(boolean nfcEnabled) {
         textViewNfcDisabled.setVisibility(nfcEnabled ? View.GONE : View.VISIBLE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            buttonNfcDisabled.setOnClickListener(v -> startAndroidNfcConfigActivityWithHint());
-            buttonNfcDisabled.setVisibility(nfcEnabled ? View.GONE : View.VISIBLE);
-        }
+        buttonNfcDisabled.setOnClickListener(v -> startAndroidNfcConfigActivityWithHint());
+        buttonNfcDisabled.setVisibility(nfcEnabled ? View.GONE : View.VISIBLE);
         textNfc.setVisibility(nfcEnabled ? View.VISIBLE : View.INVISIBLE);
         imageNfc.setVisibility(nfcEnabled ? View.VISIBLE : View.INVISIBLE);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void startAndroidNfcConfigActivityWithHint() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             context.startActivity(new Intent(Settings.Panel.ACTION_NFC));

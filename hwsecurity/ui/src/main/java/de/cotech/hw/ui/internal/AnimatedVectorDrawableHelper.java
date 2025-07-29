@@ -44,18 +44,11 @@ public class AnimatedVectorDrawableHelper {
     }
 
     public static void startAnimation(ImageView imageView, int resId, Animatable2Compat.AnimationCallback animationCallback) {
-        if (Build.VERSION.SDK_INT <= 24) {
-            AnimatedVectorDrawableCompat avdCompat = setAndStartAnimatedVectorDrawableSdk24(imageView, resId);
-            if (animationCallback != null) {
-                avdCompat.registerAnimationCallback(animationCallback);
-            }
-        } else {
-            if (animationCallback != null) {
-                AnimatedVectorDrawableCompat.registerAnimationCallback(imageView.getDrawable(), animationCallback);
-            }
-            Animatable animatable = (Animatable) imageView.getDrawable();
-            animatable.start();
+        if (animationCallback != null) {
+            AnimatedVectorDrawableCompat.registerAnimationCallback(imageView.getDrawable(), animationCallback);
         }
+        Animatable animatable = (Animatable) imageView.getDrawable();
+        animatable.start();
     }
 
     public static void startAndLoopAnimation(ImageView imageView, int resId) {
@@ -70,25 +63,16 @@ public class AnimatedVectorDrawableHelper {
                 }
 
                 fHandler.post(() -> {
-                    if (Build.VERSION.SDK_INT <= 24) {
-                        AnimatedVectorDrawableCompat avdCompat = setAndStartAnimatedVectorDrawableSdk24(imageView, resId);
-                        avdCompat.registerAnimationCallback(this);
-                    } else {
-                        ((Animatable) drawable).start();
-                    }
+                    AnimatedVectorDrawableCompat avdCompat = setAndStartAnimatedVectorDrawableSdk24(imageView, resId);
+                    avdCompat.registerAnimationCallback(this);
                 });
             }
         };
 
-        if (Build.VERSION.SDK_INT <= 24) {
-            AnimatedVectorDrawableCompat avdCompat = setAndStartAnimatedVectorDrawableSdk24(imageView, resId);
-            avdCompat.registerAnimationCallback(animationCallback);
-        } else {
-            imageView.setImageResource(resId);
-            AnimatedVectorDrawableCompat.registerAnimationCallback(imageView.getDrawable(), animationCallback);
-            Animatable animatable = (Animatable) imageView.getDrawable();
-            animatable.start();
-        }
+        imageView.setImageResource(resId);
+        AnimatedVectorDrawableCompat.registerAnimationCallback(imageView.getDrawable(), animationCallback);
+        Animatable animatable = (Animatable) imageView.getDrawable();
+        animatable.start();
     }
 
     private static AnimatedVectorDrawableCompat setAndStartAnimatedVectorDrawableSdk24(ImageView imageView, int resId) {
