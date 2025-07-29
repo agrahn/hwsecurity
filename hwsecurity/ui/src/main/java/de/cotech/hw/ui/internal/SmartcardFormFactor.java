@@ -66,8 +66,8 @@ public class SmartcardFormFactor implements LifecycleObserver {
         lifecycleOwner.getLifecycle().addObserver(this);
         nfcStatusObserver = new NfcStatusObserver(context, lifecycleOwner, this::showOrHideNfcDisabledView);
 
-        textViewNfcDisabled = view.findViewById(R.id.textNfcDisabled);
-        buttonNfcDisabled = view.findViewById(R.id.buttonNfcDisabled);
+        textViewNfcDisabled = view.findViewById(R.id.textNfcDisabledCard);
+        buttonNfcDisabled = view.findViewById(R.id.buttonNfcDisabledCard);
         smartcardAnimation = view.findViewById(R.id.smartcardAnimation);
 
         smartcardAnimation.setOnClickListener(v -> {

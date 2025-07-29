@@ -97,8 +97,8 @@ public class SecurityKeyFormFactor implements LifecycleObserver {
         textUsb = view.findViewById(R.id.textUsb);
         imageNfc = view.findViewById(R.id.imageNfc);
         imageUsb = view.findViewById(R.id.imageUsb);
-        textViewNfcDisabled = view.findViewById(R.id.textNfcDisabled);
-        buttonNfcDisabled = view.findViewById(R.id.buttonNfcDisabled);
+        textViewNfcDisabled = view.findViewById(R.id.textNfcDisabledKey);
+        buttonNfcDisabled = view.findViewById(R.id.buttonNfcDisabledKey);
         ImageButton sdkButton = view.findViewById(R.id.buttonSdk);
 
         sdkButton.setVisibility(showSdkButton ? View.VISIBLE : View.GONE);

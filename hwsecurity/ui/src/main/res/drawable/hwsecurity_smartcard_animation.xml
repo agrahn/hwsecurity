@@ -1,9 +1,5 @@
-<!-- DOMINIK: Replaced translateXY with translateY properties -->
-<!-- bug report: https://issuetracker.google.com/issues/130570602 -->
-<animated-vector xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    tools:ignore="NewApi">
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
     <aapt:attr name="android:drawable">
         <vector
             android:width="278dp"
@@ -340,17 +336,11 @@
             <set android:ordering="together">
                 <objectAnimator
                     android:duration="2233"
-                    android:propertyName="translateY"
-                    android:valueFrom="110.5"
-                    android:valueTo="275.5"
+                    android:pathData="M 138.653,110.5C 138.653,141.333 138.653,244.667 138.653,275.5"
+                    android:propertyName="translateXY"
+                    android:propertyXName="translateX"
+                    android:propertyYName="translateY"
                     android:startOffset="1267">
-                <!--<objectAnimator-->
-                    <!--android:duration="2233"-->
-                    <!--android:pathData="M 138.653,110.5C 138.653,141.333 138.653,244.667 138.653,275.5"-->
-                    <!--android:propertyName="translateXY"-->
-                    <!--android:propertyXName="translateX"-->
-                    <!--android:propertyYName="translateY"-->
-                    <!--android:startOffset="1267">-->
                     <aapt:attr name="android:interpolator">
                         <pathInterpolator android:pathData="M 0.0,0.0 c0.4,0 0.8,1 1.0,1.0" />
                     </aapt:attr>
@@ -442,17 +432,11 @@
             <set android:ordering="together">
                 <objectAnimator
                     android:duration="2233"
-                    android:propertyName="translateY"
-                    android:valueFrom="110.5"
-                    android:valueTo="275.5"
+                    android:pathData="M 138.653,110.5C 138.653,141.333 138.653,244.667 138.653,275.5"
+                    android:propertyName="translateXY"
+                    android:propertyXName="translateX"
+                    android:propertyYName="translateY"
                     android:startOffset="1267">
-                <!--<objectAnimator-->
-                    <!--android:duration="2233"-->
-                    <!--android:pathData="M 138.653,110.5C 138.653,141.333 138.653,244.667 138.653,275.5"-->
-                    <!--android:propertyName="translateXY"-->
-                    <!--android:propertyXName="translateX"-->
-                    <!--android:propertyYName="translateY"-->
-                    <!--android:startOffset="1267">-->
                     <aapt:attr name="android:interpolator">
                         <pathInterpolator android:pathData="M 0.0,0.0 c0.4,0 0.8,1 1.0,1.0" />
                     </aapt:attr>
@@ -621,17 +605,11 @@
             <set android:ordering="together">
                 <objectAnimator
                     android:duration="2233"
-                    android:propertyName="translateY"
-                    android:valueFrom="110.5"
-                    android:valueTo="275.5"
+                    android:pathData="M 138.653,110.5C 138.653,141.333 138.653,244.667 138.653,275.5"
+                    android:propertyName="translateXY"
+                    android:propertyXName="translateX"
+                    android:propertyYName="translateY"
                     android:startOffset="1267">
-                <!--<objectAnimator-->
-                    <!--android:duration="2233"-->
-                    <!--android:pathData="M 138.653,110.5C 138.653,141.333 138.653,244.667 138.653,275.5"-->
-                    <!--android:propertyName="translateXY"-->
-                    <!--android:propertyXName="translateX"-->
-                    <!--android:propertyYName="translateY"-->
-                    <!--android:startOffset="1267">-->
                     <aapt:attr name="android:interpolator">
                         <pathInterpolator android:pathData="M 0.0,0.0 c0.4,0 0.8,1 1.0,1.0" />
                     </aapt:attr>
