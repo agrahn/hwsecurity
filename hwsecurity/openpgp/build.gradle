@@ -6,7 +6,7 @@ dependencies {
     api project(':hwsecurity:core')
     implementation project(':hwsecurity:provider')
 
-    implementation(libs.bcprov.jdk15to18)
+    implementation(libs.bcprov.jdk18on)
     implementation(libs.bcutil.jdk18on)
 
     compileOnly project(':hwsecurity:ui')
